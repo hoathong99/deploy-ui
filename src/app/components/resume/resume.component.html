@@ -1,105 +1,577 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vu Ngoc Anh - Resume</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <div class="resume">
-    <header>
-      <h1>Vu Ngoc Anh</h1>
-      <p class="contact-info">
-        <span>Contact: 0824140576</span> | 
-        <span>Email: <a target="_blank" rel="noopener noreferrer" href="https://mail.google.com/mail/?view=cm&fs=1&to=hoathong99@gmail.com">hoathong99&#64;gmail.com</a></span> | 
-        <span>Facebook: <a target="_blank" rel="noopener noreferrer" href="http://fb.com/vu.ngocanh.5439087">fb.com/vu.ngocanh.5439087</a></span> | 
-        <span>Address: Võng Thị, Bưởi, Tây Hồ, Hà Nội</span>
-      </p>
-    </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vu Ngoc Anh - Resume</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-    <section>
-      <h2>Education</h2>
-      <ul>
-        <li>
-          <strong>Đại học Bách khoa Hà Nội</strong>
-          <ul>
-            <li>Major: Computer Science - ICT Global</li>
-            <li>Major Programming Tools: C++, Java, C#, JS, TS, Angular, .NET, OutSystems, SQL Server</li>
-            <li>Minor Exposure: C++, C, PHP, React, Django</li>
-          </ul>
-        </li>
-        <li>
-          <strong>THPT Chuyên Vĩnh Phúc</strong>
-          <ul>
-            <li>Lớp cận chuyên</li>
-          </ul>
-        </li>
-      </ul>
-    </section>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        padding: 20px;
+      }
 
-    <section>
-      <h2>Work Experience</h2>
-      <ul>
-        <li>
-          <strong>NittsuSystem (2022-2023)</strong>
-          <ul>
-            <li>Internship Full Stack - Part-time Full Stack Developer</li>
-            <li>Learned company-customized framework and architecture.</li>
-            <li>Practiced developing product UI and fixing issues in existing products.</li>
-          </ul>
-        </li>
-      </ul>
-    </section>
+      .resume {
+        min-width: 550px;
+        max-width: 800px;
+        margin: 0 auto;
+        background: #fff;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        overflow-y: auto;
+        overflow-x: auto;
+      }
 
-    <section>
-      <h2>Activities</h2>
-      <ul>
-        <li>Đội Tình nguyện 10/1985</li>
-      </ul>
-    </section>
+      header {
+        text-align: center;
+        margin-bottom: 20px;
+      }
 
-    <section>
-      <h2>Certificates</h2>
-      <ul>
-        <li>TOEIC Certificate - Official 855 (2018)</li>
-        <li>TOEIC Certificate - University Internal Test 875 (2024)</li>
-      </ul>
-    </section>
+      header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        color: #333;
+      }
 
-    <section>
-      <h2>Projects</h2>
-      <ul>
-        <li>
-          <strong>UI Development of IoT Management System</strong>
-          <ul>
-            <li>Team Size: 5</li>
-            <li>Position: Full Stack Intern Developer</li>
-            <li>Responsibility: Learned to develop IoT device management system.</li>
-            <li>Technology: Angular, Entity Framework</li>
-          </ul>
-        </li>
-        <li>
-          <strong>HRM (NittsuSystem)</strong>
-          <ul>
-            <li>Team Size: 7</li>
-            <li>Position: Full Stack Intern Developer - Part-time Full Stack Developer</li>
-            <li>Responsibility: Investigated and fixed bugs reported by customers or the mother company. Joined new product development when needed.</li>
-            <li>Technology: Java Core, TypeScript, Knockout.js</li>
-          </ul>
-        </li>
-        <li>
-          <strong>Personal Projects</strong>
-          <ul>
-            <li>Student Management System in .NET, Blazor, SQL Server</li>
-            <li>Weather Display Website using OpenWeatherMap API in .NET, Angular</li>
-            <li>YOLOv8 Object Detection (Computer Vision Class Project)</li>
-            <li>Student Management System in OutSystems</li>
-            <li>Honkai Star Rail's Action Turn Simulator and Team Builder with Stats (Angular, only 1.0 characters)</li>
-          </ul>
-        </li>
-      </ul>
-    </section>
-  </div>
-</body>
+      header .contact-info {
+        font-size: 0.9rem;
+        color: #555;
+      }
+
+      header .contact-info a {
+        color: #0073b1;
+        text-decoration: none;
+      }
+
+      header .contact-info a:hover {
+        text-decoration: underline;
+      }
+
+      section {
+        margin-bottom: 20px;
+      }
+
+      section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        border-bottom: 2px solid #333;
+        padding-bottom: 5px;
+        color: #333;
+      }
+
+      ul {
+        list-style-type: none;
+        padding-left: 20px;
+      }
+
+      ul li {
+        margin-bottom: 10px;
+      }
+
+      ul li strong {
+        color: #333;
+      }
+
+      ul ul {
+        margin-top: 5px;
+        padding-left: 20px;
+        list-style-type: disc;
+      }
+
+      ul ul li {
+        margin-bottom: 5px;
+        color: #555;
+      }
+
+      .localize {
+        display: flex;
+        justify-content: end;
+        gap: 10px;
+      }
+
+      button {
+        height: 30px;
+        width: 80px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="localize">
+      <button (click)="switchLanguage('EN')">English</button>
+      <button (click)="switchLanguage('VN')">Tiếng Việt</button>
+    </div>
+    @switch (Localize) { @case ("EN") {
+    <div class="resume">
+      <header>
+        <h1>Vu Ngoc Anh</h1>
+        <p class="contact-info">
+          <span
+            >Email:
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=hoathong99@gmail.com"
+              >hoathong99&#64;gmail.com</a
+            ></span
+          >
+          |
+          <span
+            >Facebook:
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="http://fb.com/vu.ngocanh.5439087"
+              >fb.com/vu.ngocanh.5439087</a
+            ></span
+          >
+        </p>
+      </header>
+
+      <section>
+        <h2>About me</h2>
+        <ul>
+          <li>
+            I am adaptable with technology and quick to learn new tools.
+            Proficient in both Vietnamese and English, I can understand
+            technical documentation in either language. Confident in my ability
+            to research and use new technologies efficiently in reasonable time,
+            I am highly motivated to continuously learn and grow.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Education</h2>
+        <ul>
+          <li>
+            <strong>Hanoi University of Science and Technology</strong>
+            <ul>
+              <li>Major: Computer Science - ICT Global</li>
+              <li>
+                Major Programming Tools: C++, Java, C#, JS, TS, Angular, .NET,
+                OutSystems, SQL Server
+              </li>
+              <li>Minor Exposure: C++, C, PHP, React, Django</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Vĩnh Phúc High School for the Gifted</strong>
+            <ul>
+              <li>All rounded class</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Work Experience</h2>
+        <ul>
+          <li>
+            <strong>NittsuSystem (2022-2023)</strong>
+            <ul>
+              <li>Internship Full Stack - Part-time Full Stack Developer</li>
+              <li>Learned company-customized framework and architecture.</li>
+              <li>
+                Practiced developing product UI and fixing issues in existing
+                products.
+              </li>
+            </ul>
+          </li>
+          <li>
+            <span
+              ><a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://github.com/hoathong99?tab=repositories"
+                ><strong>Github repository for personal project</strong></a
+              ></span
+            >
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Activities</h2>
+        <ul>
+          <li>HUST 10/1985 volunteer group</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Certificates</h2>
+        <ul>
+          <li>TOEIC Certificate - Official 855 (2018)</li>
+          <li>TOEIC Certificate - University Internal Test 875 (2024)</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Projects</h2>
+        <ul>
+          <li>
+            <strong>UI Development of IoT Management System</strong>
+            <ul>
+              <li>Team Size: 5</li>
+              <li>Position: Full Stack Intern Developer</li>
+              <li>
+                Responsibility: Learned to develop IoT device management system.
+              </li>
+              <li>Technology: Angular, Entity Framework</li>
+            </ul>
+          </li>
+          <li>
+            <strong>HRM (NittsuSystem)</strong>
+            <ul>
+              <li>Team Size: 7</li>
+              <li>
+                Position: Full Stack Intern Developer - Part-time Full Stack
+                Developer
+              </li>
+              <li>
+                Responsibility: Investigated and fixed bugs reported by
+                customers or the mother company. Joined new product development
+                when needed.
+              </li>
+              <li>Technology: Java Core, TypeScript, Knockout.js</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Personal Projects</strong>
+            <ul>
+              <li>Student Management System in .NET, Blazor, SQL Server</li>
+              <li>Cafe/Restaurant POS application (Angular, .NET)</li>
+              <li>
+                Weather Display Website using OpenWeatherMap API in .NET,
+                Angular
+              </li>
+              <li>YOLOv8 Object Detection (Computer Vision Class Project)</li>
+              <li>Student Management System in OutSystems</li>
+              <li>
+                Honkai Star Rail's Action Turn Simulator and Team Builder with
+                Stats (Angular, only 1.0 characters)
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+    </div>
+    } @case ("VN") {
+    <div class="resume">
+      <header>
+        <h1>Vũ Ngọc Anh</h1>
+        <p class="contact-info">
+          <span
+            >Email:
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=hoathong99@gmail.com"
+              >hoathong99&#64;gmail.com</a
+            ></span
+          >
+          |
+          <span
+            >Facebook:
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="http://fb.com/vu.ngocanh.5439087"
+              >fb.com/vu.ngocanh.5439087</a
+            ></span
+          >
+        </p>
+      </header>
+
+      <section>
+        <h2>Giới thiệu bản thân</h2>
+        <ul>
+          <li>
+            Tôi có khả năng thích ứng tốt với công nghệ và nhanh chóng học hỏi
+            các công cụ mới. Thành thạo cả tiếng Việt và tiếng Anh, tôi có thể
+            sử dụng các tài liệu kỹ thuật bằng cả hai ngôn ngữ. Tôi tự tin vào
+            khả năng nghiên cứu và sử dụng các công nghệ mới một cách hiệu quả
+            trong khoảng thời gian hợp lý và luôn sẵn sàng học hỏi và phát triển
+            bản để thích ứng với môi trường yêu cầu.
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h2>Học vấn</h2>
+        <ul>
+          <li>
+            <strong>Đại học Bách khoa Hà Nội</strong>
+            <ul>
+              <li>Chuyên ngành: Computer Science - ICT Global</li>
+              <li>
+                Thương xuyên sử dụng: C++, Java, C#, JS, TS, Angular, .NET,
+                OutSystems, SQL Server
+              </li>
+              <li>Tiếp xúc không thường xuyên: C++, C, PHP, React, Django</li>
+            </ul>
+          </li>
+          <li>
+            <strong>THPT Chuyên Vĩnh Phúc</strong>
+            <ul>
+              <li>Lớp cận chuyên</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Kinh nghiệm thực tế</h2>
+        <ul>
+          <li>
+            <strong>NittsuSystem (2022-2023)</strong>
+            <ul>
+              <li>Thực tập sinh fullstack - lập trình viên bán thời gian</li>
+              <li>Học tập kiến trức và công nghệ công ty</li>
+              <li>Tham gia thực tế phát triển, bảo trì sản phẩm</li>
+            </ul>
+          </li>
+          <li>
+            <span
+              ><a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://github.com/hoathong99?tab=repositories"
+                ><strong>Github repository</strong></a
+              ></span
+            >
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Hoạt Động</h2>
+        <ul>
+          <li>Đội Tình nguyện 10/1985</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Chứng chỉ</h2>
+        <ul>
+          <li>TOEIC Certificate - Official 855 (2018)</li>
+          <li>TOEIC Certificate - University Internal Test 875 (2024)</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Dự án đã tham gia</h2>
+        <ul>
+          <li>
+            <strong>Phát triển front end cho ứng dụng IOT</strong>
+            <ul>
+              <li>Số lượng thành viên: 5</li>
+              <li>Vị trí: Full Stack Intern Developer</li>
+              <li>
+                Trách nhiệm: tìm hiểu vận hành hệ thông mẫu, tham gia phát triển
+                UI ứng dụng web
+              </li>
+              <li>Công nghệ: Angular, Entity Framework</li>
+            </ul>
+          </li>
+          <li>
+            <strong>HRM (NittsuSystem)</strong>
+            <ul>
+              <li>Số lượng thành viên: 7</li>
+              <li>
+                Vị trí: Full Stack Intern Developer - Part-time Full Stack
+                Developer
+              </li>
+              <li>
+                Trách nhiệm: Điều tra bug được gửi từ khách hàng, tham gia sửa
+                lỗi, phát triển màn hình UI
+              </li>
+              <li>Công nghệ: Java Core, TypeScript, Knockout.js</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Dự án cá nhân</strong>
+            <ul>
+              <li>Quán lý sinh viên : .NET, Blazor, SQL Server</li>
+              <li>
+                Cafe/Restaurant POS application/ quản lý thu ngân quầy hàng
+                (Angular, .NET)
+              </li>
+              <li>
+                Dự báo thời tiết lấy dữ liệu từ OpenWeatherMap API in .NET,
+                Angular
+              </li>
+              <li>YOLOv8 nhiện diện vật thể (Computer Vision Class Project)</li>
+              <li>Quán lý sinh viên (sử dụng OutSystems)</li>
+              <li>
+                Giả lập cơ chế chiến đấu game Honkai Star rail (Angular, only
+                1.0 characters)
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+    </div>
+    } @default {
+    <div class="resume">
+      <header>
+        <h1>Vu Ngoc Anh</h1>
+        <p class="contact-info">
+          <span
+            >Email:
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=hoathong99@gmail.com"
+              >hoathong99&#64;gmail.com</a
+            ></span
+          >
+          |
+          <span
+            >Facebook:
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="http://fb.com/vu.ngocanh.5439087"
+              >fb.com/vu.ngocanh.5439087</a
+            ></span
+          >
+        </p>
+      </header>
+
+      <section>
+        <h2>About me</h2>
+        <ul>
+          <li>
+            I am adaptable with technology and quick to learn new tools.
+            Proficient in both Vietnamese and English, I can understand
+            technical documentation in either language. Confident in my ability
+            to research and use new technologies efficiently in reasonable time,
+            I am highly motivated to continuously learn and grow.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Education</h2>
+        <ul>
+          <li>
+            <strong>Hanoi University of Science and Technology</strong>
+            <ul>
+              <li>Major: Computer Science - ICT Global</li>
+              <li>
+                Major Programming Tools: C++, Java, C#, JS, TS, Angular, .NET,
+                OutSystems, SQL Server
+              </li>
+              <li>Minor Exposure: C++, C, PHP, React, Django</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Vĩnh Phúc High School for the Gifted</strong>
+            <ul>
+              <li>All rounded class</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Work Experience</h2>
+        <ul>
+          <li>
+            <strong>NittsuSystem (2022-2023)</strong>
+            <ul>
+              <li>Internship Full Stack - Part-time Full Stack Developer</li>
+              <li>Learned company-customized framework and architecture.</li>
+              <li>
+                Practiced developing product UI and fixing issues in existing
+                products.
+              </li>
+            </ul>
+          </li>
+          <li>
+            <span
+              ><a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://github.com/hoathong99?tab=repositories"
+                ><strong>Github repository for personal project</strong></a
+              ></span
+            >
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Activities</h2>
+        <ul>
+          <li>HUST 10/1985 volunteer group</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Certificates</h2>
+        <ul>
+          <li>TOEIC Certificate - Official 855 (2018)</li>
+          <li>TOEIC Certificate - University Internal Test 875 (2024)</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Projects</h2>
+        <ul>
+          <li>
+            <strong>UI Development of IoT Management System</strong>
+            <ul>
+              <li>Team Size: 5</li>
+              <li>Position: Full Stack Intern Developer</li>
+              <li>
+                Responsibility: Learned to develop IoT device management system.
+              </li>
+              <li>Technology: Angular, Entity Framework</li>
+            </ul>
+          </li>
+          <li>
+            <strong>HRM (NittsuSystem)</strong>
+            <ul>
+              <li>Team Size: 7</li>
+              <li>
+                Position: Full Stack Intern Developer - Part-time Full Stack
+                Developer
+              </li>
+              <li>
+                Responsibility: Investigated and fixed bugs reported by
+                customers or the mother company. Joined new product development
+                when needed.
+              </li>
+              <li>Technology: Java Core, TypeScript, Knockout.js</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Personal Projects</strong>
+            <ul>
+              <li>Student Management System in .NET, Blazor, SQL Server</li>
+              <li>Cafe/Restaurant POS application (Angular, .NET)</li>
+              <li>
+                Weather Display Website using OpenWeatherMap API in .NET,
+                Angular
+              </li>
+              <li>YOLOv8 Object Detection (Computer Vision Class Project)</li>
+              <li>Student Management System in OutSystems</li>
+              <li>
+                Honkai Star Rail's Action Turn Simulator and Team Builder with
+                Stats (Angular, only 1.0 characters)
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+    </div>
+    } }
+  </body>
 </html>
