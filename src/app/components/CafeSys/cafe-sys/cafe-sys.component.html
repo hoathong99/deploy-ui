@@ -1,0 +1,169 @@
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@40,400,0,0&icon_names=search"
+/>
+
+<div class="card">
+  <div class="MenuCard">
+    <p-splitter
+      [style]="{ height: '90vh' }"
+      [panelSizes]="[20, 60, 30]"
+      [minSizes]="[15, 20]"
+      styleClass="mb-8 "
+    >
+      <ng-template #panel>
+        <div style="flex-grow: 1" class="col flex items-center justify-center">
+          <app-app-header (tabOption)="setTabOption($event)"></app-app-header>
+        </div>
+      </ng-template>
+      <ng-template #panel>
+        <p-splitter
+          layout="vertical"
+          [panelSizes]="[50, 50]"
+          [minSizes]="[30, 20]"
+        >
+          <ng-template #panel>
+            <div style="display: flex; width: 100%">
+              @switch (tabOption) { @case ("2") {
+              <app-table-screen
+                style="overflow-y: auto; width: 100%"
+                (outputTable)="setTable($event)"
+                (outputDbcFlag)="setTableAndOpenMenu($event)"
+              ></app-table-screen>
+              } @case ("3") {
+              <app-category-screen
+                (selectedCategory)="setCategory($event)"
+                style="display: flex; width: 100%; height: 100%"
+              ></app-category-screen>
+              } @default {
+              <div style="padding-top: 50px" class="menuContent">
+                <div class="box">df</div>
+                <div class="box">df</div>
+                <div class="box">df</div>
+                <div class="box">df</div>
+                <div class="box">df</div>
+                <div class="box">df</div>
+                <div class="box">df</div>
+                <div class="box">df</div>
+                <div class="box">df</div>
+              </div>
+              } }
+            </div>
+          </ng-template>
+          <ng-template #panel>
+            <div class="menuContent">
+              @for (item of displayItemServing; track $index) {
+              <div class="box">
+                <div (dblclick)="sendItemToBill(item)">
+                  <div style="width: 100%; height: 50px; font-size: medium; font-weight: bold;">{{ item.name }}</div>
+                  <div style="width: 100%; height: 10px;">{{ item.price }}</div>
+                </div>
+                <div class="custom-input-number">
+                  <button style="width: 50px" (click)="decrease($index)">-</button>
+                  <input
+                    step="1"
+                    style="width: 50px; font-size: larger; text-align: center;"
+                    type="number"
+                    [(ngModel)]="item.count"
+                    (input)="onInputChange($index,$event)"
+                  />
+                  <button style="width: 50px" (click)="increase($index)">+</button>
+                </div>
+              </div>
+              }
+            </div>
+          </ng-template>
+        </p-splitter>
+      </ng-template>
+      <ng-template #panel>
+        <p-splitter
+          layout="vertical"
+          [panelSizes]="[40, 60]"
+          [minSizes]="[20, 20]"
+        >
+          <ng-template #panel>
+            <app-bill-screen
+              style="overflow-y: auto; width: 100%"
+              [currentTable]="tableInput"
+            ></app-bill-screen>
+          </ng-template>
+          <ng-template #panel>
+            <div
+              style="
+                flex-grow: 1;
+                height: 95%;
+                overflow-y: auto;
+                background-color: #eaeef5;
+                border-radius: 5px;
+                padding-left: 5px;
+                margin: 10px;
+                margin-right: 20px;
+              "
+              class="col flex items-center justify-center"
+            >
+              <div style="margin: 10px">
+                <div
+                  class="totalCount"
+                  style="display: flex; align-items: center"
+                >
+                  <div style="width: 80%; flex-shrink: 1">Subtotal</div>
+                  <div style="width: 20%; flex-shrink: 2">49000</div>
+                </div>
+                <div
+                  class="totalCount"
+                  style="display: flex; align-items: center"
+                >
+                  <div style="width: 80%; flex-shrink: 1">VAT(%)</div>
+                  <div style="width: 20%; flex-shrink: 2">10</div>
+                </div>
+              </div>
+
+              <p-divider type="dashed" />
+              <div style="margin: 10px">
+                <div
+                  class="totalCount"
+                  style="display: flex; align-items: center"
+                >
+                  <div style="width: 80%; flex-shrink: 1">Total</div>
+                  <div style="width: 20%; flex-shrink: 2">49000</div>
+                </div>
+                <div>
+                  <div style="margin-top: 20px">Payment method</div>
+                  <div style="display: flex; padding: 20px">
+                    <div class="payMethod" style="height: 80px; width: 80px">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="48px"
+                        viewBox="0 -960 960 960"
+                        width="48px"
+                        fill="#B7B7B7"
+                      >
+                        <path
+                          d="M80-707v-173h173v60H140v113H80Zm0 627v-173h60v113h113v60H80Zm627 0v-60h113v-113h60v173H707Zm113-627v-113H707v-60h173v173h-60ZM708-251h63v63h-63v-63Zm0-126h63v63h-63v-63Zm-63 63h63v63h-63v-63Zm-63 63h63v63h-63v-63Zm-63-63h63v63h-63v-63Zm126-126h63v63h-63v-63Zm-63 63h63v63h-63v-63Zm-63-63h63v63h-63v-63Zm252-332v252H519v-252h252ZM440-440v252H188v-252h252Zm0-332v252H188v-252h252Zm-50 534v-152H238v152h152Zm0-332v-152H238v152h152Zm331 0v-152H569v152h152Z"
+                        />
+                      </svg>
+                    </div>
+                    <div class="payMethod" style="height: 80px; width: 80px">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="48px"
+                        viewBox="0 -960 960 960"
+                        width="48px"
+                        fill="#B7B7B7"
+                      >
+                        <path
+                          d="M540-420q-50 0-85-35t-35-85q0-50 35-85t85-35q50 0 85 35t35 85q0 50-35 85t-85 35ZM220-280q-24.75 0-42.37-17.63Q160-315.25 160-340v-400q0-24.75 17.63-42.38Q195.25-800 220-800h640q24.75 0 42.38 17.62Q920-764.75 920-740v400q0 24.75-17.62 42.37Q884.75-280 860-280H220Zm100-60h440q0-42 29-71t71-29v-200q-42 0-71-29t-29-71H320q0 42-29 71t-71 29v200q42 0 71 29t29 71Zm480 180H100q-24.75 0-42.37-17.63Q40-195.25 40-220v-460h60v460h700v60ZM220-340v-400 400Z"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <div id="orderButton">Place Order</div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </p-splitter>
+      </ng-template>
+    </p-splitter>
+  </div>
+</div>

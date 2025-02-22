@@ -1,0 +1,33 @@
+<div
+style="
+  margin-top: 15px;
+  margin-left: 20px;
+  position: absolute;
+  display: flex;
+"
+class="flex-wrap justify-center"
+>
+<p-floatlabel variant="on">
+  <p-iconfield>
+    <p-inputicon class="pi pi-search" />
+    <input
+      pInputText
+      id="on_label"
+      [(ngModel)]="searchKeyword"
+      autocomplete="off"
+    />
+  </p-iconfield>
+  <label for="on_label">Search</label>
+</p-floatlabel>
+<span
+  style="margin: 5px; position: absolute"
+  class="material-symbols-outlined"
+>
+  search
+</span>
+</div>
+<div style="padding-top: 50px" class="menuContent">
+  @for (item of categories; track $index) {
+    <div class="box" (click)="clickOnCategory(item.id)">{{item.name}}</div>
+  }
+</div>

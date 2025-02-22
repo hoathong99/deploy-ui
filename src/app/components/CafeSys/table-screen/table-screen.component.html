@@ -1,0 +1,20 @@
+<div style="overflow-y: auto; width: 100%;">
+    <p-tabs value="0">
+      <p-tablist>
+        @for (tab of displayAreaTab; track tab.value) {
+        <p-tab [value]="tab.value">{{ tab.title }}</p-tab>
+        }
+      </p-tablist>
+      <p-tabpanels>
+        @for (tab of displayAreaTab; track tab.value) {
+        <p-tabpanel [value]="tab.value">
+          <div style="margin-left: 5px !important;" class="menuContent">
+            @for (item of tab.content; track $index) {
+              <div class="box" (click)="ClickOnTable(item)" (dblclick)="doubleClickOnTable()">{{item.name}}</div>
+            }
+          </div>
+        </p-tabpanel>
+        }
+      </p-tabpanels>
+    </p-tabs>
+  </div>
