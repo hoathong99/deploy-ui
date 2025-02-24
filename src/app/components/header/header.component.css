@@ -20,7 +20,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #a5a8ac;
+  background-color: #8EB486;
   padding: 1rem 2rem;
   position: sticky; /* Make the navbar sticky */
   top: 0; /* Stick to the top of the screen */

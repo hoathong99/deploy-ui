@@ -13,6 +13,9 @@ import { TableScreenComponent } from '../table-screen/table-screen.component';
 import { BillScreenComponent } from '../bill-screen/bill-screen.component';
 import { Table, ItemServing } from '../Dto/Dtos';
 import { CategoryScreenComponent } from '../category-screen/category-screen.component';
+import { setting } from '../../setting/setting.component';
+import { SelectButtonModule } from 'primeng/selectbutton';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 @Component({
   selector: 'app-cafe-sys',
   imports: [
@@ -29,6 +32,7 @@ import { CategoryScreenComponent } from '../category-screen/category-screen.comp
     TableScreenComponent,
     BillScreenComponent,
     CategoryScreenComponent,
+    SelectButtonModule,
   ],
   templateUrl: './cafe-sys.component.html',
   styleUrl: './cafe-sys.component.css',
@@ -42,6 +46,11 @@ export class CafeSysComponent {
   step: number = 1;
   min: number = 0;
   tempCount: number = 0;
+  setting: setting = new setting();
+  sanitizedSvgs: SafeHtml[] = [];
+  paymentMethods: string[] = [];
+
+  constructor(private sanitizer: DomSanitizer) {}
   //-----Dummy----------------------------------------------------------------
   itemServings: ItemServing[] = [
     new ItemServing(
@@ -170,7 +179,22 @@ export class CafeSysComponent {
     ),
   ];
   //---------------------------------------------------------------------------
-  ngOnInit() {}
+  ngOnInit() {
+    this.getSetting();
+    this.CalculateBill();
+    // Sanitize the SVG string
+    this.setting.PaymentMethods.forEach((element) => {
+      this.sanitizedSvgs.push(this.sanitizer.bypassSecurityTrustHtml(element));
+    });
+  }
+
+  getSetting() {
+    var tempPaymentmethodlist = [
+      '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#F8F5E9"><path d="M80-707v-173h173v60H140v113H80Zm0 627v-173h60v113h113v60H80Zm627 0v-60h113v-113h60v173H707Zm113-627v-113H707v-60h173v173h-60ZM708-251h63v63h-63v-63Zm0-126h63v63h-63v-63Zm-63 63h63v63h-63v-63Zm-63 63h63v63h-63v-63Zm-63-63h63v63h-63v-63Zm126-126h63v63h-63v-63Zm-63 63h63v63h-63v-63Zm-63-63h63v63h-63v-63Zm252-332v252H519v-252h252ZM440-440v252H188v-252h252Zm0-332v252H188v-252h252Zm-50 534v-152H238v152h152Zm0-332v-152H238v152h152Zm331 0v-152H569v152h152Z"/></svg>',
+      '<svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#F8F5E9"><path d="M540-420q-50 0-85-35t-35-85q0-50 35-85t85-35q50 0 85 35t35 85q0 50-35 85t-85 35ZM220-280q-24.75 0-42.37-17.63Q160-315.25 160-340v-400q0-24.75 17.63-42.38Q195.25-800 220-800h640q24.75 0 42.38 17.62Q920-764.75 920-740v400q0 24.75-17.62 42.37Q884.75-280 860-280H220Zm100-60h440q0-42 29-71t71-29v-200q-42 0-71-29t-29-71H320q0 42-29 71t-71 29v200q42 0 71 29t29 71Zm480 180H100q-24.75 0-42.37-17.63Q40-195.25 40-220v-460h60v460h700v60ZM220-340v-400 400Z"/></svg>',
+    ];
+    this.setting = new setting(0.1, tempPaymentmethodlist); // tempo fixed setting . should call backend for saved setting if I actually make a backend
+  }
   setTabOption(num: number) {
     this.tabOption = num.toString();
     console.log('Change tab to' + this.tabOption);
@@ -215,9 +239,34 @@ export class CafeSysComponent {
   }
 
   sendItemToBill(item: ItemServing) {
-    if (item.count > 0 && this.tableInput.bill.id!='') {
-      this.tableInput.bill.listArray.push(new ItemServing(item.id, item.name, item.price, item.image, item.descrip, item.count, item.category_id, item.category_name ));
+    if (item.count > 0 && this.tableInput.bill.id != '') {
+      this.tableInput.bill.listArray.push(
+        new ItemServing(
+          item.id,
+          item.name,
+          item.price,
+          item.image,
+          item.descrip,
+          item.count,
+          item.category_id,
+          item.category_name
+        )
+      );
       console.log(this.tableInput);
+      this.CalculateBill();
     }
+  }
+
+  CalculateBill() {
+    this.tableInput.bill.VAT = this.setting.VAT_current;
+    this.tableInput.bill.subTotal = 0;
+    this.tableInput.bill.listArray.forEach((element) => {
+      this.tableInput.bill.subTotal += element.price;
+    });
+    this.tableInput.bill.total =
+      this.tableInput.bill.subTotal * (1 + this.tableInput.bill.VAT);
+    this.tableInput.bill.total =
+      this.tableInput.bill.subTotal * (1 + this.tableInput.bill.VAT);
+    this.tableInput.bill.total = Number(this.tableInput.bill.total.toFixed(2));
   }
 }
