@@ -16,6 +16,7 @@ import { CategoryScreenComponent } from '../category-screen/category-screen.comp
 import { setting } from '../../setting/setting.component';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { TakeAwayComponent } from "../take-away/take-away.component";
 @Component({
   selector: 'app-cafe-sys',
   imports: [
@@ -33,7 +34,9 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
     BillScreenComponent,
     CategoryScreenComponent,
     SelectButtonModule,
-  ],
+    TakeAwayComponent,
+    
+],
   templateUrl: './cafe-sys.component.html',
   styleUrl: './cafe-sys.component.css',
 })

@@ -46,8 +46,8 @@ export class Bill {
   VAT: number;
   status: number;
   method: number;
-
-  constructor(id?: string, listArray?: ItemServing[], subTotal?: number, total?: number, VAT?: number, status?: number, method?: number) {
+  date: Date;
+  constructor(id?: string, listArray?: ItemServing[], subTotal?: number, total?: number, VAT?: number, status?: number, method?: number, date?: Date) {
     this.id = id ?? '';
     this.listArray = listArray ?? [];
     this.subTotal = subTotal ?? 0;
@@ -55,6 +55,7 @@ export class Bill {
     this.VAT = VAT ?? 0;
     this.status = status ?? 0;
     this.method = method ?? 0;
+    this.date = date ?? new Date();
   }
 }
 

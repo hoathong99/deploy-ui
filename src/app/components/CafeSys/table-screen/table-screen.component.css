@@ -23,3 +23,7 @@
 .box:hover {
   cursor: pointer;
 }
+
+.box:active {
+  transform: scale(0.96);
+}

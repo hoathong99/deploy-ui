@@ -151,9 +151,11 @@ export class TableScreenComponent {
     console.log('Dbc Selected Bill:');
   }
 
-  EnableNewBill() {
-
+  loadingComponentData(){
+    //TODO
+    //Loading all table info from API call
   }
+
 }
 
 
