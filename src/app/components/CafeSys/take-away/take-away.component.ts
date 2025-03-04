@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { Bill, ItemServing, Table } from '../Dto/Dtos';
+import { Bill, ItemServing, Table } from '../common/Dtos';
 
 @Component({
   selector: 'app-take-away',
@@ -50,7 +50,7 @@ export class TakeAwayComponent {
   ClickOnBill(b : Bill){
       let temp = new Table();
       temp.bill = b;
-      temp.name = "Takeaway#"+b.id;
+      temp.name = "Takeaway";
       this.table.emit(temp);
   }
 

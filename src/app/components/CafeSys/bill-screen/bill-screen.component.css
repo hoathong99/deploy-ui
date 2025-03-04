@@ -32,3 +32,7 @@
   background-color: #a4bb9f;
   cursor: pointer;
 }
+
+.infoButton:hover{
+  cursor: pointer;
+}

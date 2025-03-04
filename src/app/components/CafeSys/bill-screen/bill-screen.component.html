@@ -1,54 +1,107 @@
 <div style="flex-grow: 1">
+  <div style="padding-left: 10px; display: flex; align-items: center">
     <div
-      style="padding-left: 10px; display: flex; align-items: center"
+      style="
+        padding: 5px;
+        padding-top: 20px;
+        margin-right: 20px;
+        height: 50px;
+        width: 100%;
+        color: rgb(109, 107, 107);
+        font-weight: 500;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+      "
     >
-      <div
-        style="
-          padding: 5px;
-          padding-top: 20px;
-          height: 50px;
-          width: 90%;
-          color: rgb(109, 107, 107);
-          font-weight: 500;
-        "
-      >
-        {{currentTable.name}}
-      </div>
-
+      <span style="margin-right: auto; color: #334155;">{{ currentTable.name }} #{{ currentTable.bill.id }}</span>
+      <span class="infoButton" (click)="showDialog()">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#434343"><path d="M436.41-276.41h87.18V-520h-87.18v243.59ZM480-595.22q19.03 0 31.91-12.87 12.87-12.88 12.87-31.91t-12.87-31.91q-12.88-12.87-31.91-12.87t-31.91 12.87q-12.87 12.88-12.87 31.91t12.87 31.91q12.88 12.87 31.91 12.87Zm0 523.35q-84.91 0-159.34-32.12-74.44-32.12-129.5-87.17-55.05-55.06-87.17-129.5Q71.87-395.09 71.87-480t32.12-159.34q32.12-74.44 87.17-129.5 55.06-55.05 129.5-87.17 74.43-32.12 159.34-32.12t159.34 32.12q74.44 32.12 129.5 87.17 55.05 55.06 87.17 129.5 32.12 74.43 32.12 159.34t-32.12 159.34q-32.12 74.44-87.17 129.5-55.06 55.05-129.5 87.17Q564.91-71.87 480-71.87Zm0-91q133.04 0 225.09-92.04 92.04-92.05 92.04-225.09 0-133.04-92.04-225.09-92.05-92.04-225.09-92.04-133.04 0-225.09 92.04-92.04 92.05-92.04 225.09 0 133.04 92.04 225.09 92.05 92.04 225.09 92.04ZM480-480Z"/></svg>
+      </span>
     </div>
-    @for (item of currentTable.bill.listArray; track $index) {
-        <div class="OrderScreen">
-            <div class="orderItem">
-              <div class="remove_buttom" style="width: 10%; padding-top: 5px" (dblclick)="RemoveItem($index)">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="24px"
-                  viewBox="0 -960 960 960"
-                  width="24px"
-                  fill="#D16D6A"
-                >
-                  <path
-                    d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"
-                  />
-                </svg>
-              </div>
-              <div style="width: 50%">{{item.name}}</div>
-              <div style="width: 20%">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="24px"
-                  viewBox="0 -960 960 960"
-                  width="24px"
-                  fill="#B7B7B7"
-                >
-                  <path
-                    d="m336-280-56-56 144-144-144-143 56-56 144 144 143-144 56 56-144 143 144 144-56 56-143-144-144 144Z"
-                  />
-                </svg>
-                {{item.count}}
-              </div>
-              <div style="width: 20%">{{item.price*item.count}}</div>
-            </div>
-          </div>
-    }
   </div>
+  @for (item of currentTable.bill.listArray; track $index) {
+  <div class="OrderScreen">
+    <div class="orderItem">
+      <div
+        class="remove_buttom"
+        style="width: 10%; padding-top: 5px"
+        (dblclick)="RemoveItem($index)"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 -960 960 960"
+          width="24px"
+          fill="#D16D6A"
+        >
+          <path
+            d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"
+          />
+        </svg>
+      </div>
+      <div style="width: 50%" (dblclick)="showDialog()">{{ item.name }}</div>
+      <div style="width: 20%">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 -960 960 960"
+          width="24px"
+          fill="#B7B7B7"
+        >
+          <path
+            d="m336-280-56-56 144-144-144-143 56-56 144 144 143-144 56 56-144 143 144 144-56 56-143-144-144 144Z"
+          />
+        </svg>
+        {{ item.count }}
+      </div>
+      <div style="width: 20%">{{ (item.price * item.count).toFixed(2) }}</div>
+    </div>
+  </div>
+  }
+</div>
+
+<div class="card flex justify-center">
+  <p-dialog
+    header="Detail"
+    [modal]="true"
+    [(visible)]="visible"
+    [style]="{ width: '70rem' }"
+  >
+    <div class="card">
+      <p-table
+        [value]="currentTable.bill.listArray"
+        stripedRows
+        [paginator]="true"
+        [rows]="10"
+        [tableStyle]="{ 'min-width': '50rem' }"
+        autoLayout="true"
+      >
+        <ng-template #header>
+          <tr>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Option</th>
+            <th>Quantity</th>
+          </tr>
+        </ng-template>
+        <ng-template #body let-product>
+          <tr>
+            <td style="color: #334155; font-size: medium; font-weight: 500">
+              {{ product.name }}
+            </td>
+            <td style="color: #334155; font-size: medium; font-weight: 500">
+              {{ product.category_name }}
+            </td>
+            <td style="color: #334155; font-size: medium; font-weight: 500">
+              <textarea style="color: #334155;" rows="1" cols="20" pTextarea  [(ngModel)]="product.descrip"></textarea>
+            </td>
+            <td style="color: #334155; font-size: medium; font-weight: 500">
+              <p-inputnumber [(ngModel)]="product.count" mode="decimal" [showButtons]="true" inputId="minmax-buttons" [min]="0" [max]="100" />
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </p-dialog>
+</div>

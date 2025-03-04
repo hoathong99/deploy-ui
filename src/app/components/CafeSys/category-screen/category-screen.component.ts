@@ -4,7 +4,7 @@ import { IconFieldModule } from 'primeng/iconfield';
 import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
 import { FloatLabelModule } from 'primeng/floatlabel';
-import { Category } from '../Dto/Dtos';
+import { Category } from '../common/Dtos';
 @Component({
   selector: 'app-category-screen',
   imports: [

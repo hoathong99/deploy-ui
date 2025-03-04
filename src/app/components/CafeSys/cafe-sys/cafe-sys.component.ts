@@ -11,7 +11,7 @@ import { DividerModule } from 'primeng/divider';
 import { TabsModule } from 'primeng/tabs';
 import { TableScreenComponent } from '../table-screen/table-screen.component';
 import { BillScreenComponent } from '../bill-screen/bill-screen.component';
-import { Table, ItemServing } from '../Dto/Dtos';
+import { Table, ItemServing } from '../common/Dtos';
 import { CategoryScreenComponent } from '../category-screen/category-screen.component';
 import { setting } from '../../setting/setting.component';
 import { SelectButtonModule } from 'primeng/selectbutton';

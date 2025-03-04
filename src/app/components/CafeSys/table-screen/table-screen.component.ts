@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { TabsModule } from 'primeng/tabs';
 import { CommonModule } from '@angular/common';
 import { Output, EventEmitter } from '@angular/core';
-import { Area, Table, Bill, ItemServing } from '../Dto/Dtos';
+import { Area, Table, Bill, ItemServing } from '../common/Dtos';
 @Component({
   selector: 'app-table-screen',
   imports: [TabsModule, CommonModule],
