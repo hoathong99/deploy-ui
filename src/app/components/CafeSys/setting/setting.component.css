@@ -1,0 +1,37 @@
+.Input_field {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  margin: 2em;
+  justify-content: space-between;
+}
+
+.column {
+  flex: 1;
+  text-align: left;
+  padding: 10px;
+}
+
+.tabButtom {
+    display: flex;
+    margin: 20px;
+  color: #f7f7f7;
+  border-radius: 5px;
+  background-color: #8eb486;
+  align-content: center;
+  height: 50px;
+  width: 100px;
+  left: 70em;
+  justify-content: center;
+  align-items: center;
+}
+
+.tabButtom:hover {
+  background-color: #9ab694;
+  cursor: pointer;
+}
+
+.tabButtom:active {
+  background-color: #a4bb9f;
+  cursor: pointer;
+}

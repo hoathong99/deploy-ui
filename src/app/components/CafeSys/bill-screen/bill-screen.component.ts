@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Table } from '../common/Dtos';
-import { setting } from '../setting/setting.component';
+import { Setting } from '../setting/setting.component';
 import { DialogModule } from 'primeng/dialog';
 import { TableModule } from 'primeng/table';
 import { FormsModule } from '@angular/forms';
@@ -20,7 +20,7 @@ import { TextareaModule } from 'primeng/textarea';
 })
 export class BillScreenComponent {
   @Input() currentTable: Table = new Table();
-  @Input() currentSetting: setting = new setting();
+  @Input() currentSetting: Setting = new Setting();
   visible: boolean = false;
 
   showDialog() {

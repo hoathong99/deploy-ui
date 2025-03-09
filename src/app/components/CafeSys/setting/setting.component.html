@@ -1,1 +1,48 @@
-<p>setting {{SettingTab}}</p>
+
+@switch (SettingTab) {
+    @case ('1') {
+        
+<div style="width: 100%; display: flexbox;">
+    <div class="Input_field">
+        <div class="column">Business name: </div>
+        <div class="column">
+            <p-floatlabel variant="in">
+                <input [disabled]="businessBoolean" pInputText id="in_label" [(ngModel)]="this.Setting.businessName" autocomplete="off" />
+                <label for="in_label">Business Name</label>
+            </p-floatlabel>
+        </div>
+        <div class="column">
+            <p-toggleswitch [(ngModel)]="businessBoolean" />
+        </div>
+    </div>
+    <div class="Input_field">
+        <div class="column">Contact: </div>
+        <div class="column">
+            <p-floatlabel variant="in">
+                <input [disabled]="contactBoolean" pInputText id="in_label" [(ngModel)]="this.Setting.contact" autocomplete="off" />
+                <label for="in_label">Contact</label>
+            </p-floatlabel>
+        </div>
+        <div class="column">
+            <p-toggleswitch [(ngModel)]="contactBoolean" />
+        </div>
+    </div>
+    <div class="Input_field">
+        <div class="column">Address: </div>
+        <div class="column">
+            <p-floatlabel variant="in">
+                <textarea [disabled]="addressBoolean" rows="3" cols="20" pTextarea  [(ngModel)]="this.Setting.address"></textarea>
+                <label for="in_label">Address</label>
+            </p-floatlabel>
+        </div>
+        <div class="column">
+            <p-toggleswitch [(ngModel)]="addressBoolean" />
+        </div>
+    </div>
+    <div class="tabButtom">Save</div>
+</div>
+    }
+    @default {
+        <p>setting {{SettingTab}}</p>
+    }
+}
