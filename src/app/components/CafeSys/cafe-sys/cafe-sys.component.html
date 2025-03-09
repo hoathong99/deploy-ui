@@ -13,7 +13,7 @@
     >
       <ng-template #panel>
         <div style="flex-grow: 1" class="col flex items-center justify-center">
-          <app-app-header (tabOption)="setTabOption($event)"></app-app-header>
+          <app-app-header (tabOption)="setTabOption($event)" (SettingOption)="setSettingOption($event)"></app-app-header>
         </div>
       </ng-template>
       <ng-template #panel>
@@ -38,7 +38,12 @@
               }@case ("4") {
               <app-take-away (table)="setTable($event)" style="display: flex; width: 100%; height: 100%">
               </app-take-away>
-              } @default {
+              }
+              @case ("5") {
+                <app-setting [SettingTab]="SettingOption" style="display: flex; width: 100%; height: 100%; color: black;">
+
+                </app-setting>
+                } @default {
               <div style="padding-top: 50px" class="menuContent">
                 <div class="box">TODO</div>
               </div>

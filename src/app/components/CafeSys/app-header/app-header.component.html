@@ -21,6 +21,29 @@
 
     <div class="tabButtom" (click)="clickOnTab(4)">TakeAway</div>
 
-    <div class="tabButtom" (click)="clickOnTab(5)">Accounting</div>
+    <div class="tabButtom" (click)="visible = true">Setting</div>
 
+</div>
+
+<div class="card flex justify-center">
+  <p-drawer [(visible)]="visible" header="Setting">
+    <div class="tabs">
+
+      <div class="tabButtom" (click)="clickOnTab(5); OpensettingTab(1)">Business Information</div>
+  
+      <div class="tabButtom" (click)="clickOnTab(5); OpensettingTab(2)">User Management</div>
+  
+      <div class="tabButtom" (click)="clickOnTab(5); OpensettingTab(3)">Payment Settings</div>
+  
+      <div class="tabButtom" (click)="clickOnTab(5); OpensettingTab(4)">Tax & Pricing</div>
+
+      <div class="tabButtom" (click)="clickOnTab(5); OpensettingTab(5)">Table Management</div>
+
+      <div class="tabButtom" (click)="clickOnTab(5); OpensettingTab(6)">Item Management </div>
+  
+      <div class="tabButtom" (click)="clickOnTab(5); OpensettingTab(7)">Order & Receipt Settings</div>
+
+      
+  </div>
+  </p-drawer>
 </div>

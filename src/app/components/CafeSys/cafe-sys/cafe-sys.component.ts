@@ -13,10 +13,10 @@ import { TableScreenComponent } from '../table-screen/table-screen.component';
 import { BillScreenComponent } from '../bill-screen/bill-screen.component';
 import { Table, ItemServing } from '../common/Dtos';
 import { CategoryScreenComponent } from '../category-screen/category-screen.component';
-import { setting } from '../../setting/setting.component';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { TakeAwayComponent } from "../take-away/take-away.component";
+import { SettingComponent, setting } from '../setting/setting.component';
 @Component({
   selector: 'app-cafe-sys',
   imports: [
@@ -35,7 +35,7 @@ import { TakeAwayComponent } from "../take-away/take-away.component";
     CategoryScreenComponent,
     SelectButtonModule,
     TakeAwayComponent,
-    
+    SettingComponent
 ],
   templateUrl: './cafe-sys.component.html',
   styleUrl: './cafe-sys.component.css',
@@ -43,6 +43,7 @@ import { TakeAwayComponent } from "../take-away/take-away.component";
 export class CafeSysComponent {
   searchKeyword: string = '';
   tabOption: string = '';
+  SettingOption: string = '';
   tableInput: Table = new Table();
   selectedCategory: string = '';
   displayItemServing: ItemServing[] = [];
@@ -202,6 +203,12 @@ export class CafeSysComponent {
     this.tabOption = num.toString();
     console.log('Change tab to' + this.tabOption);
   }
+
+  setSettingOption(num: number) {
+    this.SettingOption = num.toString();
+    console.log('Change setting tab to' + this.tabOption);
+  }
+
   setTable(table: Table) {
     this.tableInput = table;
     console.log('Change tab to' + this.tableInput);

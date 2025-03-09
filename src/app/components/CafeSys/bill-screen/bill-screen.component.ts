@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Table } from '../common/Dtos';
-import { setting } from '../../setting/setting.component';
+import { setting } from '../setting/setting.component';
 import { DialogModule } from 'primeng/dialog';
 import { TableModule } from 'primeng/table';
 import { FormsModule } from '@angular/forms';
