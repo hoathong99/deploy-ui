@@ -10,6 +10,7 @@ import { CommonMiddleWave } from '../common/Middlewave';
 export class TakeAwayComponent {
   billList : Bill[] = [];
   @Output() table = new EventEmitter<Table>();
+  @Output() outputDbcFlag = new EventEmitter<boolean>();
   common = new CommonMiddleWave();
 
   ngOnInit(){
@@ -26,5 +27,9 @@ export class TakeAwayComponent {
   CreateBill(){
     
     this.billList.push(this.common.CreateNewBill());
+  }
+
+  doubleClickOnTable(){
+    this.outputDbcFlag.emit(true);
   }
 }

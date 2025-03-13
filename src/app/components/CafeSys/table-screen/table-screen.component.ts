@@ -143,13 +143,13 @@ export class TableScreenComponent {
   }
 
   ClickOnTable(table: Table): void {
-    console.log('Selected Bill:', table);
+    // console.log('Selected Bill:', table);
     this.outputTable.emit(table);
   }
 
   doubleClickOnTable(){
     this.outputDbcFlag.emit(true);
-    console.log('Dbc Selected Bill:');
+    // console.log('Dbc Selected Bill:');
   }
 }
 

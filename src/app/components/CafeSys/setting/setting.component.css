@@ -13,14 +13,14 @@
 }
 
 .tabButtom {
-    display: flex;
-    margin: 20px;
+  display: flex;
+  margin: 20px;
   color: #f7f7f7;
   border-radius: 5px;
   background-color: #8eb486;
   align-content: center;
   height: 50px;
-  width: 100px;
+  width: 200px;
   left: 70em;
   justify-content: center;
   align-items: center;

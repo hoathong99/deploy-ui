@@ -1,7 +1,7 @@
 
 <div style="padding-top: 50px" class="menuContent">
   @for (item of billList; track $index) {
-    <div class="box" (click)="ClickOnBill(item)">#{{item.id}}</div>
+    <div class="box" (dblclick)="doubleClickOnTable()" (click)="ClickOnBill(item)">#{{item.id}}</div>
   }
   <div class="box" style=" display: flex; align-items : center; justify-content: center;" (dblclick)="CreateBill()">
     <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#F8F5E9"><path d="M422-422.5H176v-116h246v-246h116v246h246v116H538v246H422v-246Z"/></svg>  </div>
